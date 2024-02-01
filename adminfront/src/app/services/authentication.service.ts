@@ -3,8 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { BACKEND_URL } from '../config/http';
 
-
-
 interface LoginResponse {
   error?: string;
   message?: string;

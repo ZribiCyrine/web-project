@@ -7,7 +7,6 @@ import { AuthenticateGuard } from './services/guards/authenticate.guard';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-  //{path: 'user', children: [
   {
     path: '',
     component: HomeComponent,
@@ -27,7 +26,6 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   }
-//]}
 ];
 
 @NgModule({
