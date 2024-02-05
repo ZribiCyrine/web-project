@@ -17,7 +17,7 @@ export class AuthenticationService {
 
   authenticated: BehaviorSubject<boolean> = new BehaviorSubject(this.isAuthenticated())
 
-  login(email: string, password: string) {
+  login(email: string, password: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(BACKEND_URL + '/auth/admin/login', { email, password })
   }
 

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Participant } from '../model/interfaces/participant.interface';
-import { ToastrService } from 'ngx-toastr';
 
 const link = "http://localhost:3000/auth";
 interface LoginResponse {
@@ -18,7 +17,6 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private toastr: ToastrService
   ) { }
 
   authenticated: BehaviorSubject<boolean> = new BehaviorSubject(this.isAuthenticated())

@@ -34,14 +34,8 @@ export class ImageController {
     if (!image) {
       res.status(404).send('Image not found');
     } else {
-      res.setHeader('Content-Type', 'image/jpeg'); // Ajustez en fonction du type MIME réel de votre image
       res.end(image.data);
     }
-  }
-
-  @Get('event/:eventId')
-  async getImagesByEvent(@Param('eventId') eventId: number) {
-    return this.imageService.findByEventId(eventId);
   }
 
   @Get()

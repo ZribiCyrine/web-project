@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -27,7 +27,7 @@ import { JwtService } from '@nestjs/jwt';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Participant, Admin, Creator, Event, SellPoint, Image, Ticket],
+      entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true,
       logging: true,
       options: {

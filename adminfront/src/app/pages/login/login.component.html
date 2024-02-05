@@ -1,32 +1,27 @@
-<body><div class="container login-form">
-    <form (ngSubmit)="submit()"  novalidate>
-        <fieldset >
-            <legend>Panneau de l'administrateur</legend>
-            <div class="mb-3">
-                <label for="email-input" class="form-label">Email</label>
-                <input (blur)="validateEmail()" required type="email" id="email-input" [ngClass]="{'form-control': true, 'is-valid': emailError === '', 'is-invalid': emailError !== null && emailError !== ''}" placeholder="Email" [formControl]="email">
-                <div class="invalid-feedback">
-                    {{emailError}}
-                </div>
-                <div class="valid-feedback" >
-                    OK!
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="password-input" class="form-label" >Mot de passe</label>
-                <input (blur)="validatePassword()"  required type="password" id="password-input" placeholder="Password" [formControl]="password"  [ngClass]="{'form-control': true, 'is-valid': passwordError === '', 'is-invalid': passwordError !== null && passwordError !== ''}">
-                <div class="invalid-feedback">
-                    {{passwordError}}
-                </div>
-                <div class="valid-feedback" >
-                    OK!
-                </div>
-            </div>
-            <div class="alert alert-danger" role="alert" *ngIf="message !== ''">
-                {{message}}
-              </div>
-            <button type="submit" class="btn btn-primary" [disabled]="loading">Se connecter</button>
-        </fieldset>
+<body>
+  <div class="container login-form">
+    <form #signinForm="ngForm">
+      <fieldset>
+        <legend>Panneau de l'administrateur</legend>
+        <div class="mb-3">
+          <input type="email" id="email" ngModel name="email2" class="form-control" email required
+            #inputEmail2="ngModel" placeholder="E-mail" />
+          <span *ngIf="inputEmail2.errors?.['required'] && inputEmail2.touched" class="text-danger">L'E-mail est
+            requis.</span>
+          <span *ngIf="inputEmail2.errors?.['email'] && inputEmail2.touched" class="text-danger">L'E-mail n'est pas
+            valide.</span>
+        </div>
+        <div class="mb-3">
+          <input required minlength="4" type="password" id="password" ngModel name="password" class="form-control"
+            #inputPassword2="ngModel" placeholder="Mot de passe" />
+          <span *ngIf="inputPassword2.errors?.['required'] && inputPassword2.touched" class="text-danger">Le mot de
+            passe
+            est requis.</span>
+          <span *ngIf="inputPassword2.errors?.['minlength'] && inputPassword2.touched" class="text-danger">Le mot de
+            passe doit contenir au moins 4 caractères.</span>
+        </div>
+        <button (click)="login(inputEmail2.value, inputPassword2.value)">Se connecter</button>
+      </fieldset>
     </form>
-</div>
+  </div>
 </body>

@@ -19,6 +19,7 @@ import { AuthenticateGuard } from './services/guards/authenticate.guard';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,8 @@ import { HomeComponent } from './pages/home/home.component';
       bootstrapWatch,
     }),
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+
   ],
   providers: [AuthenticateGuard,
     {

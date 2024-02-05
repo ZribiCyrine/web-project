@@ -12,15 +12,16 @@ import { Router } from '@angular/router';
 })
 export class LogInSignInComponent implements OnInit {
   isActive: any;
-  emailError: null | string = null
-  passwordError: null | string = null
-  loading: boolean = false
+  emailError: null | string = null;
+  passwordError: null | string = null;
+  loading: boolean = false;
 
   constructor(
     private toggleService: ToggleService,
     private toastr: ToastrService,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.toggleService.isLoginActive$.subscribe((isActive) => {
@@ -32,7 +33,7 @@ export class LogInSignInComponent implements OnInit {
     const cinString = cin.toString();
     return cinString.length !== 8;
   }
-  
+
   login(email: string, password: string) {
     this.loading = true;
     this.emailError = null;

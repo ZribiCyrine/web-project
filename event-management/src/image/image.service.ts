@@ -15,8 +15,6 @@ export class ImageService {
   async create(createImageDto: CreateImageDto): Promise<Image> {
     try {
       const image = this.imageRepository.create(createImageDto);
-      console.log(createImageDto);
-
       return await this.imageRepository.save(image);
 
     } catch (error) {
@@ -30,12 +28,6 @@ export class ImageService {
       throw new NotFoundException(`Image with ID ${id} not found`);
     }
     return image;
-  }
-
-  async findByEventId(eventId: number): Promise<Image[]> {
-    return await this.imageRepository.find({
-      where: { event: { id: eventId } },
-    });
   }
 
   async findAll(): Promise<Image[]> {
