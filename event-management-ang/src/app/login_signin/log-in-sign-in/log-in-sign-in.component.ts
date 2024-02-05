@@ -62,10 +62,6 @@ export class LogInSignInComponent implements OnInit {
     this.toggleService.toggleLogin();
   }
 
-  notif(test: any, message: string): void {
-    if (test) { this.toastr.error(message); }
-  }
-
   signUp(form: NgForm) {
     if (form.invalid) {
       return;

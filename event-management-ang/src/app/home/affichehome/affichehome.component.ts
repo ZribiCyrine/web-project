@@ -16,11 +16,12 @@ export class AffichehomeComponent implements OnInit {
   constructor(private homeService: HomeService) { }
 
   ngOnInit(): void {
-    this.homeService.getConfirmedEvents().subscribe((data) => {
-      this.events = data;
-      this.loading = false;
-      this.error = null;
-    },
+    this.homeService.getConfirmedEvents().subscribe(
+      (data) => {
+        this.events = data;
+        this.loading = false;
+        this.error = null;
+      },
       (error) => {
         this.error = error.message;
         this.loading = false;

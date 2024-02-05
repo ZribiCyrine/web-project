@@ -40,7 +40,7 @@ export interface Event {
     name: string;
   };
   image: {
-    // data: Buffer;
+    data: Buffer;
   };
 }
 

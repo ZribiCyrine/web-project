@@ -29,13 +29,10 @@ export class CreateEventComponent {
     } else {
       this.selectedFile = null;
     }
-  }
 
-  handleImageInput(event: any, form: NgForm) {
-    const file = event.target.files[0];
-    if (file) {
+    if (this.selectedFile) {
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('file', this.selectedFile);
 
       this.imageService.uploadImage(formData).subscribe(
         response => {
